@@ -1,0 +1,29 @@
+@import 'styles/media-queries';
+
+.results {
+  font-family: sans-serif;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 15px;
+    @include tablet {
+      justify-content: initial;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    margin: 0 10px 0 0;
+  }
+
+  &__address {
+    font-style: normal;
+    text-align: right;
+
+    @include tablet {
+      text-align: initial;
+    }
+  }
+
+}
