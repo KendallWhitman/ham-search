@@ -1,14 +1,28 @@
 @import 'styles/media-queries';
 
 .results {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 1px #aaa;
+  box-sizing: border-box;
   font-family: sans-serif;
+  padding: 25px;
+  margin: 0 auto;
+  max-width: 800px;
+  @include tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
   &__item {
     display: flex;
+    min-height: 30px;
     justify-content: space-between;
-    margin: 0 0 15px;
     @include tablet {
       justify-content: initial;
+    }
+    &:not(:last-child) {
+      margin: 0 0 15px;
     }
   }
 

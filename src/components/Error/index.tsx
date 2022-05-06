@@ -1,6 +1,5 @@
 import {useContext} from "react";
 import { LicenseContext } from "context";
-import "./styles.scss";
 
 const Error = () => {
   const { licenseData } = useContext(LicenseContext);
@@ -12,11 +11,11 @@ const Error = () => {
     'OTHER': 'Something went wrong. Please try again.',
   };
 
-  const isError = status !== 'OK' || status !== undefined;
+  const hasError = status !== undefined && status !== 'OK';
 
   return (
     <>
-      {isError &&
+        {hasError &&
         <p className='error'>{errors[licenseData?.messages?.status]}</p>
       }
     </>

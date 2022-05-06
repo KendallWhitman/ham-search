@@ -1,16 +1,12 @@
 import { useContext, useState } from 'react';
 import { LicenseContext } from 'context';
 import getLicense from './getLicense';
-import "./styles.scss";
 
 const Search = () => {
   const { licenseData, setLicenseData } = useContext(LicenseContext);
   const [value, setValue] = useState('');
 
-  const handleChange = (value: string) => {
-    setValue(value)
-    setLicenseData({})
-  };
+  const handleChange = (value: string) => setValue(value);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();

@@ -1,5 +1,4 @@
 import Search from 'components/Search';
-import './styles.scss';
 
 const Header = () => (
   <header className='header'>

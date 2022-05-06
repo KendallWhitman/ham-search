@@ -1,15 +1,18 @@
-@import 'styles/media-queries';
-
 .search {
   @include tablet {
     display: flex;
+    max-width: 800px;
+    width: 100%;
   }
 
   &__input {
     border: 1px solid #BBB;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
     border-right: 0;
     box-sizing: border-box;
-    font-size: 20px;
+    font-family: digital, sans-serif;
+    font-size: 34px;
     font-weight: 600;
     height: 50px;
     outline: none;
@@ -22,8 +25,10 @@
   }
 
   &__button {
-    background: #F77E31;
+    background: $primary-color;
     border: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
     box-sizing: border-box;
     color: #FFF;
     cursor: pointer;

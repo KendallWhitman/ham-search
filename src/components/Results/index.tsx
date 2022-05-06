@@ -1,25 +1,10 @@
 import { useContext } from "react";
 import { LicenseContext } from "context";
 import { licenseClasses, licenseStatus } from "utils/licenseCodes";
-import './styles.scss';
-import {type} from "os";
+import Callsign from "./types";
 
 const Results = () => {
   const { licenseData } = useContext(LicenseContext);
-
-  interface Callsign {
-    addr1: string,
-    addr2: string,
-    call: string,
-    class: string,
-    country: string,
-    expires: string,
-    fname: string,
-    name: string,
-    state: string,
-    status: string,
-    zip: string,
-  };
 
   const {
     addr1,
@@ -35,9 +20,11 @@ const Results = () => {
     zip,
   }: Callsign = licenseData?.callsign || {};
 
+  const hasCallsign = call !== undefined && call !== 'NOT_FOUND';
+
   return (
     <>
-      {call !== 'NOT_FOUND' &&
+      {hasCallsign &&
         <div className='results'>
           {name &&
             <p className='results__item'>

@@ -1,4 +1,14 @@
+@import 'colors';
+@import 'fonts';
+@import 'media-queries';
+
+@import 'components/Error/styles';
+@import 'components/Header/styles';
+@import 'components/Results/styles';
+@import 'components/Search/styles';
+
 body {
+  background: $tertiary-color;
   margin: 0;
 }
 
