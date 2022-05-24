@@ -1,0 +1,35 @@
+.loader {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  &__signal {
+    animation: grow 1s linear 0s infinite;
+    background: radial-gradient(transparent, transparent, $primary-color);
+    border: 1px solid $primary-color;
+    border-radius: 100%;
+    position: absolute;
+  }
+
+  &__antenna {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: $secondary-color;
+    margin: 90px 0 0;
+    height: 100px;
+    width: 10px;
+  }
+}
+
+@keyframes grow {
+  from {
+    height: 10px;
+    opacity: 1;
+    width: 10px;
+  }
+  to {
+    height: 150px;
+    opacity: 0;
+    width: 150px;
+  }
+}
