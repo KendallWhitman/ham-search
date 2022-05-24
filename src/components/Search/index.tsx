@@ -10,14 +10,14 @@ const Search = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    await setLicenseData({});
+    await setLicenseData('loading');
 
     try {
       const data = await getLicense(value);
       await setLicenseData(data);
     } catch (err: any) {
       if (value === '') {
-        setLicenseData({...licenseData, messages: { status: '' } })
+        setLicenseData({ messages: { status: '' } })
       } else {
         setLicenseData({...licenseData, messages: { status: 'OTHER' } })
       }
