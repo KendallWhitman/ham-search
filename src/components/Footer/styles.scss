@@ -1,0 +1,21 @@
+.footer {
+  padding: 30px 0;
+
+  &__text {
+    color: #888;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__link {
+    @extend .footer__text;
+    transition: color 0.25s;
+    &:hover {
+      color: #555;
+    }
+  }
+
+}
