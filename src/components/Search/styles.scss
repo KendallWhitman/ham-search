@@ -18,7 +18,11 @@
     outline: none;
     padding: 0 15px;
     text-align: center;
+    text-transform: uppercase;
     width: 100%;
+    &::placeholder {
+      text-transform: none;
+    }
     @include tablet {
       border-radius: 0;
       border-top-left-radius: 3px;

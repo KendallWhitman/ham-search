@@ -4,6 +4,7 @@ import Error from 'components/Error';
 import LicenseProvider from 'context';
 import 'styles/index.scss';
 import Loader from 'components/Loader';
+import Footer from 'components/Footer';
 
 const App = () => (
   <LicenseProvider>
@@ -13,6 +14,7 @@ const App = () => (
       <Results />
       <Error />
     </main>
+    <Footer />
   </LicenseProvider>
 );
 

@@ -2,7 +2,7 @@ import Search from 'components/Search';
 
 const Header = () => (
   <header className='header'>
-    <span className='logo'>HamSearch.io</span>
+    <span className='logo'>Ham Search</span>
     <Search />
   </header>
 );

@@ -7,12 +7,20 @@
 @import 'components/Results/styles';
 @import 'components/Search/styles';
 @import 'components/Loader/styles';
+@import 'components/Footer/styles';
 
 body {
   background: $tertiary-color;
   margin: 0;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 main {
+  flex: 1;
   padding: 0 15px;
 }

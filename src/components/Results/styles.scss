@@ -9,7 +9,7 @@
   padding: 25px;
   margin: 0 auto;
   max-width: 800px;
-  @include tablet {
+  @include desktop {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -18,7 +18,7 @@
     display: flex;
     min-height: 30px;
     justify-content: space-between;
-    @include tablet {
+    @include desktop {
       justify-content: initial;
     }
     &:not(:last-child) {
@@ -35,7 +35,7 @@
     font-style: normal;
     text-align: right;
 
-    @include tablet {
+    @include desktop {
       text-align: initial;
     }
   }

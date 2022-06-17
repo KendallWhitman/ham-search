@@ -29,8 +29,8 @@ const Search = () => {
       <form onSubmit={handleSubmit} className='search'>
         <input
           className='search__input'
-          onChange={(e) => handleChange(e.target.value.toUpperCase())}
-          placeholder="Callsign"
+          onChange={(e) => handleChange(e.target.value)}
+          placeholder="Search by callsign"
           type='text'
           value={value}
         />
