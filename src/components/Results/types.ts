@@ -1,15 +1,17 @@
-interface Callsign {
-  addr1: string,
-  addr2: string,
-  call: string,
-  class: string,
-  country: string,
-  expires: string,
-  fname: string,
+interface ResultTypes {
+  address: {
+    line1: string,
+    line2: string
+  },
+  current: {
+    callsign: string,
+    operClass: string,
+  },
   name: string,
-  state: string,
+  otherInfo: {
+    expiryDate: string,
+  },
   status: string,
-  zip: string,
 };
 
-export default Callsign;
+export default ResultTypes;

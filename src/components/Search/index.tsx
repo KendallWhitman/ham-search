@@ -3,7 +3,7 @@ import { LicenseContext } from 'context';
 import getLicense from './getLicense';
 
 const Search = () => {
-  const { licenseData, setLicenseData } = useContext(LicenseContext);
+  const { setLicenseData } = useContext(LicenseContext);
   const [value, setValue] = useState('');
 
   const handleChange = (value: string) => setValue(value);
@@ -12,16 +12,8 @@ const Search = () => {
     e.preventDefault();
     await setLicenseData('loading');
 
-    try {
-      const data = await getLicense(value);
-      await setLicenseData(data);
-    } catch (err: any) {
-      if (value === '') {
-        setLicenseData({ messages: { status: '' } })
-      } else {
-        setLicenseData({...licenseData, messages: { status: 'OTHER' } })
-      }
-    }
+    const data = await getLicense(value);
+    await setLicenseData(data);
   };
 
   return (

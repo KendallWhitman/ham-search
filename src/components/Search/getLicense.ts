@@ -1,8 +1,15 @@
 const getLicense = async (value: string = '') => {
-  const response = await fetch(`https://api.hamdb.org/${value}/json/hamsearch`);
-  const { hamdb } = await response.json();
+  if (value !== '') {
+    try {
+      const response = await fetch(`https://callook.info/${value}/json`);
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      return { status: 'OTHER' };
+    }
+  }
 
-  return hamdb;
+  return { status: 'EMPTY' };
 };
 
 export default getLicense;
