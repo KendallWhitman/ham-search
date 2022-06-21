@@ -14,8 +14,6 @@ const Results = () => {
     status,
   }: ResultTypes = licenseData || {};
 
-  console.log(licenseData);
-
   const { line1, line2 } = address || {};
   const { callsign, operClass } = current || {};
   const { gridsquare, latitude, longitude } = location || {};
