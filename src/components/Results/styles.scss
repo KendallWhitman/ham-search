@@ -5,12 +5,13 @@
   border-radius: 3px;
   box-shadow: 0 0 5px 1px #aaa;
   box-sizing: border-box;
+  display: grid;
   font-family: sans-serif;
-  padding: 25px;
+  grid-gap: 15px;
   margin: 0 auto 30px;
   max-width: 800px;
+  padding: 25px;
   @include desktop {
-    display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
@@ -18,11 +19,9 @@
     display: flex;
     min-height: 30px;
     justify-content: space-between;
+    margin: 0;
     @include desktop {
       justify-content: initial;
-    }
-    &:not(:last-child) {
-      margin: 0 0 15px;
     }
   }
 
