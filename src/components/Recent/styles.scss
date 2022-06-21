@@ -1,0 +1,37 @@
+@import 'styles/media-queries';
+@import 'styles/colors';
+
+.recent {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 1px #aaa;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  padding: 25px;
+  margin: 30px auto;
+  max-width: 800px;
+
+  &__title {
+    color: $secondary-color;
+    margin: 0 0 30px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    font-size: 18px;
+    &:not(:last-child) {
+      margin: 0 0 15px;
+    }
+  }
+
+  &__link {
+    color: $primary-color;
+    text-transform: uppercase;
+  }
+
+}
