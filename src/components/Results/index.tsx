@@ -8,13 +8,17 @@ const Results = () => {
   const {
     address,
     current,
+    location,
     name,
     otherInfo,
     status,
   }: ResultTypes = licenseData || {};
 
+  console.log(licenseData);
+
   const { line1, line2 } = address || {};
   const { callsign, operClass } = current || {};
+  const { gridsquare, latitude, longitude } = location || {};
   const { expiryDate } = otherInfo || {};
 
   return (
@@ -36,6 +40,24 @@ const Results = () => {
           {operClass &&
             <p className='results__item'>
               <span className='results__label'>Class:</span> {operClass}
+            </p>
+          }
+
+          {gridsquare && 
+            <p className='results__item'>
+              <span className='results__label'>Grid Square:</span> {gridsquare}
+            </p>
+          }
+
+          {latitude && 
+            <p className='results__item'>
+              <span className='results__label'>Lat:</span> {latitude}
+            </p>
+          }
+
+          {longitude && 
+            <p className='results__item'>
+                <span className='results__label'>Long:</span> {longitude}
             </p>
           }
 
