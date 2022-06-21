@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { LicenseContext } from 'context';
 import getLicense from './getLicense';
 
