@@ -1,82 +1,81 @@
 import { useContext } from "react";
 import { LicenseContext } from "context";
+import { licenseClasses, licenseStatus } from "utils/licenseCodes";
 import ResultTypes from "./types";
 
 const Results = () => {
   const { licenseData } = useContext(LicenseContext);
 
   const {
-    address,
-    current,
-    location,
+    addr1,
+    addr2,
+    call,
+    class: cls,
+    country,
+    expires,
+    fname,
+    grid,
+    lat,
+    lon,
     name,
-    otherInfo,
+    state,
     status,
-  }: ResultTypes = licenseData || {};
+    zip,
+  }: ResultTypes = licenseData?.callsign || {};
 
-  const { line1, line2 } = address || {};
-  const { callsign, operClass } = current || {};
-  const { gridsquare, latitude, longitude } = location || {};
-  const { expiryDate } = otherInfo || {};
+  const hasCallsign = call !== undefined && call !== 'NOT_FOUND';
 
   return (
     <>
-      {name &&
+      {hasCallsign &&
         <div className='results'>
           {name &&
             <p className='results__item'>
-              <span className='results__label'>Name:</span> {name}
+              <span className='results__label'>Name:</span> {`${fname} ${name}`}
             </p>
           }
-
-          {callsign &&
+          {call &&
             <p className='results__item'>
-              <span className='results__label'>Callsign:</span> {callsign}
+              <span className='results__label'>Callsign:</span> {call}
             </p>
           }
-
-          {operClass &&
+          {cls &&
             <p className='results__item'>
-              <span className='results__label'>Class:</span> {operClass}
+              <span className='results__label'>Class:</span> {licenseClasses[cls]}
             </p>
           }
-
-          {gridsquare && 
-            <p className='results__item'>
-              <span className='results__label'>Grid Square:</span> {gridsquare}
-            </p>
-          }
-
-          {latitude && 
-            <p className='results__item'>
-              <span className='results__label'>Lat:</span> {latitude}
-            </p>
-          }
-
-          {longitude && 
-            <p className='results__item'>
-                <span className='results__label'>Long:</span> {longitude}
-            </p>
-          }
-
           {status &&
             <p className='results__item'>
-              <span className='results__label'>Status:</span> {status}
+              <span className='results__label'>Status:</span> {licenseStatus[status]}
             </p>
           }
-
-          {expiryDate &&
+          {expires &&
             <p className='results__item'>
-              <span className='results__label'>Expiration Date:</span> {expiryDate}
+              <span className='results__label'>Expiration Date:</span> {expires}
             </p>
           }
-
-          {line1 &&
+          {grid &&
+            <p className='results__item'>
+              <span className='results__label'>Grid:</span> {grid}
+            </p>
+          }
+          {lat &&
+            <p className='results__item'>
+              <span className='results__label'>Lat:</span> {lat}
+            </p>
+          }
+          {lon &&
+            <p className='results__item'>
+              <span className='results__label'>Lon:</span> {lon}
+            </p>
+          }
+          {addr1 &&
             <div className="results__item">
               <span className='results__label'>Address:</span>
               <address className='results__address'>
-                {line1}<br/>
-                {`${line2 && `${line2}`}`}<br/>
+                {addr1}<br/>
+                {`${addr2 && `${addr2},`} ${state && `${state}.`} ${zip}`}<br/>
+                {country}
               </address>
             </div>
           }
