@@ -19,7 +19,7 @@ const Search = () => {
     const data = await getLicense(localValue);
     await setLicenseData({...data, value: localValue });
 
-    if (!recent.includes(licenseData.value)) {
+    if (!recent.includes(licenseData.value) && (/[a-z,A-Z,0-9]/).test(licenseData.value)) {
       localStorage.setItem('recent', JSON.stringify([licenseData.value, ...recent].slice(0, 5)));
     }
   };
