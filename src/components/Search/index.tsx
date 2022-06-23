@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { LicenseContext } from 'context';
-import getLicense from './getLicense';
+import getLicense from 'utils/getLicense';
 
 const Search = () => {
   const { licenseData, setLicenseData } = useContext(LicenseContext);

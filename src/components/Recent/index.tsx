@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { LicenseContext } from "context";
-import getLicense from '../Search/getLicense';
+import getLicense from 'utils/getLicense';
 
 const Recent = () => {
   const { setLicenseData } = useContext(LicenseContext);
