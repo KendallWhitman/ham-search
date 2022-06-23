@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  hamsearchdev:
+  hamsearch:
     build: .
     restart: always
-    container_name: hamsearchdev
+    container_name: hamsearch
     ports:
-      - 8004:8004
+      - 8003:8003
