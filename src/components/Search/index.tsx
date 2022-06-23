@@ -16,8 +16,8 @@ const Search = () => {
     e.preventDefault();
     await setLicenseData('loading');
 
-    const data = await getLicense(licenseData.value);
-    await setLicenseData({...data, value: licenseData.value });
+    const data = await getLicense(localValue);
+    await setLicenseData({...data, value: localValue });
 
     if (!recent.includes(licenseData.value)) {
       localStorage.setItem('recent', JSON.stringify([licenseData.value, ...recent].slice(0, 5)));

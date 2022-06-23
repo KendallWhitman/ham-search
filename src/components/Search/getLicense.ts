@@ -1,10 +1,10 @@
-const getLicense = async (value: string = '') => {
+const getLicense = async (value: string) => {
   if (value !== '') {
     const response = await fetch(`https://backend.hamsearch.io/hamdb/${value}`);
     return await response.json();
   }
 
-  return { status: 'EMPTY' };
+  return { messages: { status: 'EMPTY' } };
 };
 
 export default getLicense;
