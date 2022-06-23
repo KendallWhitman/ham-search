@@ -41,7 +41,7 @@ const Results = () => {
           }
           {cls &&
             <p className='results__item'>
-              <span className='results__label'>Class:</span> {licenseClasses[cls]}
+              <span className='results__label'>Class:</span> {licenseClasses[cls] || cls}
             </p>
           }
           {status &&
