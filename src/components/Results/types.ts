@@ -1,22 +1,18 @@
 interface ResultTypes {
-  address: {
-    line1: string,
-    line2: string
-  },
-  current: {
-    callsign: string,
-    operClass: string,
-  },
-  location: {
-    gridsquare: string,
-    latitude: string,
-    longitude: string,
-  }
-  name: string,
-  otherInfo: {
-    expiryDate: string,
-  },
+  call: string,
+  class: string,
+  expires: string,
   status: string,
+  grid: string,
+  lat: string,
+  lon: string,
+  fname: string,
+  name: string,
+  addr1: string,
+  addr2: string,
+  state: string,
+  zip: string,
+  country: string,
 };
 
 export default ResultTypes;

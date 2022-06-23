@@ -2,15 +2,15 @@ import { useContext } from "react";
 import { LicenseContext } from "context";
 
 const Error = () => {
-  const { licenseData: { status } } = useContext(LicenseContext);
+  const { licenseData } = useContext(LicenseContext);
 
   const errors: any = {
     'EMPTY': 'A valid callsign is required',
-    'INVALID': 'Callsign not found',
+    'NOT_FOUND': 'Callsign not found',
     'OTHER': 'Something went wrong. Please try again.',
   };
 
-  const error = errors[status];
+  const error = errors[licenseData?.messages?.status] || null;
 
   return (
     <>
