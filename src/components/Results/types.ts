@@ -1,18 +1,16 @@
 interface ResultTypes {
-  call: string,
-  class: string,
+  address: string,
+  address2: string,
+  callsign: string,
+  cls: string,
+  country: string,
   expires: string,
-  status: string,
   grid: string,
   lat: string,
+  licenseStatus: string,
   lon: string,
-  fname: string,
   name: string,
-  addr1: string,
-  addr2: string,
-  state: string,
-  zip: string,
-  country: string,
+  status: string,
 };
 
 export default ResultTypes;

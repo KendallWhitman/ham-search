@@ -9,7 +9,7 @@ const getLicense = async (value: string) => {
     return await response.json();
   }
 
-  return { messages: { status: 'EMPTY' } };
+  return { status: 'EMPTY' };
 };
 
 export default getLicense;

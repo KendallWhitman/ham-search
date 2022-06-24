@@ -1,52 +1,46 @@
 import { useContext } from "react";
 import { LicenseContext } from "context";
-import { licenseClasses, licenseStatus } from "utils/licenseCodes";
 import ResultTypes from "./types";
 
-const Results = () => {
-  const { licenseData } = useContext(LicenseContext);
+const Results = () => { const { licenseData } = useContext(LicenseContext);
 
   const {
-    addr1,
-    addr2,
-    call,
-    class: cls,
-    country,
-    expires,
-    fname,
-    grid,
-    lat,
-    lon,
-    name,
-    state,
-    status,
-    zip,
-  }: ResultTypes = licenseData?.callsign || {};
-
-  const hasCallsign = call !== undefined && call !== 'NOT_FOUND';
+  address,
+  address2,
+  callsign,
+  cls,
+  country,
+  expires,
+  grid,
+  lat,
+  licenseStatus,
+  lon,
+  name,
+  status,
+  }: ResultTypes = licenseData || {};
 
   return (
     <>
-      {hasCallsign &&
+      {status === 'OK' &&
         <div className='results'>
           {name &&
             <p className='results__item'>
-              <span className='results__label'>Name:</span> {`${fname} ${name}`}
+              <span className='results__label'>Name:</span> {name}
             </p>
           }
-          {call &&
+          {callsign &&
             <p className='results__item'>
-              <span className='results__label'>Callsign:</span> {call}
+              <span className='results__label'>Callsign:</span> {callsign}
             </p>
           }
           {cls &&
             <p className='results__item'>
-              <span className='results__label'>Class:</span> {licenseClasses[cls] || cls}
+              <span className='results__label'>Class:</span> {cls}
             </p>
           }
-          {status &&
+          {licenseStatus &&
             <p className='results__item'>
-              <span className='results__label'>Status:</span> {licenseStatus[status]}
+              <span className='results__label'>Status:</span> {licenseStatus}
             </p>
           }
           {expires &&
@@ -69,12 +63,12 @@ const Results = () => {
               <span className='results__label'>Lon:</span> {lon}
             </p>
           }
-          {addr1 &&
+          {address &&
             <div className="results__item">
               <span className='results__label'>Address:</span>
               <address className='results__address'>
-                {addr1}<br/>
-                {`${addr2 && `${addr2},`} ${state && `${state}.`} ${zip}`}<br/>
+                {address}<br/>
+                {address2}<br/>
                 {country}
               </address>
             </div>

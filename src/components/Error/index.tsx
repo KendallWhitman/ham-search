@@ -10,7 +10,7 @@ const Error = () => {
     'OTHER': 'Something went wrong. Please try again.',
   };
 
-  const error = errors[licenseData?.messages?.status] || null;
+  const error = errors[licenseData?.status] || null;
 
   return (
     <>
