@@ -15,6 +15,11 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  &--recent {
+    box-shadow: none;
+    margin: 0;
+  }
+
   &__item {
     display: flex;
     min-height: 30px;

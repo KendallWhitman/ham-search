@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { LicenseContext } from "context";
 import ResultTypes from "./types";
 
-const Results = () => { const { licenseData } = useContext(LicenseContext);
+const Results = ({ isRecent, recentEntry }: { isRecent?: boolean, recentEntry?: any }) => {
+  const { licenseData } = useContext(LicenseContext);
 
   const {
   address,
@@ -17,12 +18,12 @@ const Results = () => { const { licenseData } = useContext(LicenseContext);
   lon,
   name,
   status,
-  }: ResultTypes = licenseData || {};
+  }: ResultTypes = isRecent ? recentEntry : licenseData || {};
 
   return (
     <>
       {status === 'OK' &&
-        <div className='results'>
+      <div className={`results ${isRecent ? 'results--recent' : ''}`}>
           {name &&
             <p className='results__item'>
               <span className='results__label'>Name:</span> {name}

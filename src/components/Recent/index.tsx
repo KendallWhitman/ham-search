@@ -1,35 +1,33 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LicenseContext } from "context";
-import getLicense from 'utils/getLicense';
+import RecentItem from "./RecentItem";
 
 const Recent = () => {
-  const { setLicenseData } = useContext(LicenseContext);
-  let recent = JSON.parse(localStorage.getItem('recent') || '[]');
+  const { licenseData } = useContext(LicenseContext);
+  const [recent, setRecent] = useState(
+    JSON.parse(localStorage.getItem('recent') || '[]')
+  );
 
-  const handleSubmit = async (e: any, value: string) => {
-    e.preventDefault();
-    await setLicenseData('loading');
+  useEffect(() => {
+    setRecent(JSON.parse(localStorage.getItem('recent') || '[]'));
+  }, [licenseData]);
 
-    const data = await getLicense(value);
-    await setLicenseData({...data, value: value});
-  };
+  const clearRecent = () => {
+    localStorage.setItem('recent', '[]');
+    setRecent([]);
+  }
 
   return (
     <>
       {recent.length > 0 &&
         <div className='recent'>
-          <h2 className='recent__title'>Recent Searches</h2>
-            <ul className='recent__list'>
-              {recent?.map((item: string, i: number) => (
-              <li key={i} className='recent__item'>
-                <a
-                  href="/"
-                  onClick={(e) => handleSubmit(e, item)}
-                  className='recent__link'
-                >
-                  {item}
-                </a>
-              </li>
+          <div className='recent__header'>
+            <h2 className='recent__title'>Recent Searches</h2>
+            <span className='recent__link' onClick={clearRecent}>Clear</span>
+          </div>
+          <ul className='recent__list'>
+            {recent?.map((item: any, i: number) => (
+              <RecentItem item={item} key={i} />
             ))}
           </ul>
         </div>

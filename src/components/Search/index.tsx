@@ -16,11 +16,24 @@ const Search = () => {
     e.preventDefault();
     await setLicenseData('loading');
 
+    const recentIndex = recent.map((v: any) => v.callsign).indexOf(localValue.toUpperCase());
+    const isRecent = recentIndex > -1;
+
+    if (isRecent) {
+      setLicenseData(recent[recentIndex]);
+      return;
+    }
+
     const data = await getLicense(localValue);
     await setLicenseData({...data, value: localValue });
 
-    if (!recent.includes(licenseData.value) && (/[a-z,A-Z,0-9]/).test(licenseData.value)) {
-      localStorage.setItem('recent', JSON.stringify([licenseData.value, ...recent].slice(0, 5)));
+    const isValid =
+      data.status !== 'EMPTY' &&
+      data.status !== 'NOT_FOUND' &&
+      data.status !== 'OTHER';
+
+    if (!isRecent && isValid) {
+      localStorage.setItem('recent', JSON.stringify([data, ...recent].slice(0, 10)));
     }
   };
 
