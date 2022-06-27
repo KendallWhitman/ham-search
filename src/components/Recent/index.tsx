@@ -9,6 +9,10 @@ const Recent = () => {
   );
 
   useEffect(() => {
+    if (typeof recent[0] === 'string') {
+      localStorage.setItem('recent', '[]');
+    }
+
     setRecent(JSON.parse(localStorage.getItem('recent') || '[]'));
   }, [licenseData]);
 
