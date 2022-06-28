@@ -1,7 +1,7 @@
 import Results from "components/Results";
 import { useState } from "react"
 
-const RecentItem = ({ item }) => {
+const RecentItem = ({ item }: { item: any }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
