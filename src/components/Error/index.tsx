@@ -7,7 +7,7 @@ const Error = () => {
   const errors: any = {
     'EMPTY': 'A valid callsign is required',
     'NOT_FOUND': 'Callsign not found',
-    'OTHER': 'Something went wrong. Please try again.',
+    'ERROR': 'Something went wrong. Please try again.',
   };
 
   const error = errors[licenseData?.status] || null;

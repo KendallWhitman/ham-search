@@ -30,7 +30,7 @@ const Search = () => {
     const isValid =
       data.status !== 'EMPTY' &&
       data.status !== 'NOT_FOUND' &&
-      data.status !== 'OTHER';
+      data.status !== 'ERROR';
 
     if (!isRecent && isValid) {
       localStorage.setItem('recent', JSON.stringify([data, ...recent].slice(0, 10)));
