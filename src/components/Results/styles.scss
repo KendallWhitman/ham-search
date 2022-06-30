@@ -20,6 +20,10 @@
     margin: 0;
   }
 
+  &__image {
+    width: 25%;
+  }
+
   &__item {
     display: flex;
     min-height: 30px;
@@ -36,6 +40,8 @@
   }
 
   &__address {
+    display: block;
+    margin: 0 0 15px;
     font-style: normal;
     text-align: right;
 
