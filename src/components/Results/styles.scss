@@ -21,7 +21,12 @@
   }
 
   &__image {
-    width: 25%;
+    display: block;
+    margin: 0 0 0 auto;
+    width: 75px;
+    @include desktop {
+      margin: 0;
+    }
   }
 
   &__item {
