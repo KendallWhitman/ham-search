@@ -25,49 +25,55 @@ const Results = ({ isRecent, recentEntry }: { isRecent?: boolean, recentEntry?: 
   return (
     <>
       {status === 'OK' &&
-      <div className={`results ${isRecent ? 'results--recent' : ''}`}>
-          {name &&
-            <p className='results__item'>
-              <span className='results__label'>Name:</span> {name}
-            </p>
-          }
-          {callsign &&
-            <p className='results__item'>
-              <span className='results__label'>Callsign:</span> {callsign}
-            </p>
+        <ul className={`results ${isRecent ? 'results--recent' : ''}`}>
+          {(name || callsign) &&
+            <li className='results__header'>
+              {name &&
+                <p className='results__title'>{name}</p>
+              }
+              {callsign &&
+                <p className='results__subtitle'>{callsign}</p>
+              }
+            </li>
           }
           {cls &&
-            <p className='results__item'>
-              <span className='results__label'>Class:</span> {cls}
-            </p>
+            <li className='results__item'>
+              <span className='results__label'>Class:</span>
+              <span>{cls}</span>
+            </li>
           }
           {licenseStatus &&
-            <p className='results__item'>
-              <span className='results__label'>Status:</span> {licenseStatus}
-            </p>
+            <li className='results__item'>
+              <span className='results__label'>Status:</span> 
+              <span>{licenseStatus}</span>
+            </li>
           }
           {expires &&
-            <p className='results__item'>
-              <span className='results__label'>Expiration Date:</span> {expires}
-            </p>
+            <li className='results__item'>
+              <span className='results__label'>Expiration:</span>
+              <span>{expires}</span>
+            </li>
           }
           {grid &&
-            <p className='results__item'>
-              <span className='results__label'>Grid:</span> {grid}
-            </p>
+            <li className='results__item'>
+              <span className='results__label'>Grid:</span>
+              <span>{grid}</span>
+            </li>
           }
           {lat &&
-            <p className='results__item'>
-              <span className='results__label'>Lat:</span> {lat}
-            </p>
+            <li className='results__item'>
+              <span className='results__label'>Lat:</span>
+              <span>{lat}</span>
+            </li>
           }
           {lon &&
-            <p className='results__item'>
-              <span className='results__label'>Lon:</span> {lon}
-            </p>
+            <li className='results__item'>
+              <span className='results__label'>Lon:</span>
+              <span>{lon}</span>
+            </li>
           }
           {address &&
-            <div className="results__item">
+            <li className="results__item">
               <span className='results__label'>Address:</span>
               <div>
                 <address className='results__address'>
@@ -81,9 +87,9 @@ const Results = ({ isRecent, recentEntry }: { isRecent?: boolean, recentEntry?: 
                   className='results__image'
                 />
               </div>
-            </div>
+            </li>
           }
-        </div>
+        </ul>
       }
     </>
   );

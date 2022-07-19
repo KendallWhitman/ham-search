@@ -8,6 +8,7 @@
   display: grid;
   font-family: sans-serif;
   grid-gap: 15px;
+  list-style: none;
   margin: 0 auto 30px;
   max-width: 800px;
   padding: 25px;
@@ -31,12 +32,36 @@
 
   &__item {
     display: flex;
+    font-size: 18px;
     min-height: 30px;
     justify-content: space-between;
     margin: 0;
+
+
     @include desktop {
       justify-content: initial;
+
+      &:nth-child(even):last-child() {
+        grid-column: 1/ 3;
+      }
     }
+  }
+
+  &__header {
+    @include desktop {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 5px;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    margin: 0 0 15px;
   }
 
   &__label {
