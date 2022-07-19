@@ -3,7 +3,6 @@
   background: $secondary-color;
   box-sizing: border-box;
   display: grid;
-  height: 200px;
   justify-items: center;
   margin: 0 0 30px;
   padding: 15px;
@@ -11,6 +10,12 @@
   top: 0;
   width: 100%;
   z-index: 1;
+
+  @include desktop-xl {
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 85px;
+    padding: 0 15px;
+  }
 }
 
 .logo {
@@ -18,11 +23,16 @@
   font-family: digital, sans-serif;
   font-size: 32px;
   font-weight: 600;
+  margin: 0 0 15px;
   text-align: center;
 
   @include tablet {
     font-size: 40px;
-    margin: 0;
     text-align: initial;
+  }
+
+  @include desktop-xl {
+    justify-self: start;
+    margin: 0;
   }
 }
