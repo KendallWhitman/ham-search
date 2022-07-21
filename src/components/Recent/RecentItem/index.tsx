@@ -9,7 +9,7 @@ const RecentItem = ({ item }: { item: any }) => {
   return (
     <li className='recent__item'>
       <div className='recent__wrapper' onClick={toggleDropdown}>
-        <span className='recent__link'>{item.callsign}</span>
+        <span className='recent__text'>{item.callsign}</span>
         <span className={`recent__icon ${isOpen ? 'recent__icon--open' : ''}`} />
       </div>
       <div className={`recent__container ${isOpen ? 'recent__container--open' : ''}`}>

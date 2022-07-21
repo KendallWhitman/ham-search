@@ -56,6 +56,13 @@
     text-transform: uppercase;
   }
 
+  &__text {
+    color: lighten($primary-color, 3%);
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
   &__icon {
     align-items: center;
     display: flex;
@@ -63,27 +70,27 @@
     justify-content: center;
     &:before {
       content: '';
-      border-bottom: 3px solid $primary-color;
+      border-bottom: 3px solid lighten($primary-color, 3%);
       display: block;
       position: absolute;
-      transition: transform 0.2s;
+      transition: transform 0.25s;
       width: 15px;
     }
     &:after {
       content: '';
-      border-right: 3px solid $primary-color;
+      border-right: 3px solid lighten($primary-color, 3%);
       display: block;
       position: absolute;
       height: 15px;
-      transition: transform 0.2s;
+      transition: transform 0.25s;
     }
 
     &--open {
       &:before {
-        transform: rotate(135deg);
+        transform: rotate(45deg);
       }
       &:after {
-        transform: rotate(135deg);
+        transform: rotate(45deg);
       }
     }
   }
