@@ -28,12 +28,19 @@ const Results = ({ isRecent, recentEntry }: { isRecent?: boolean, recentEntry?: 
         <ul className={`results ${isRecent ? 'results--recent' : ''}`}>
           {(name || callsign) &&
             <li className='results__header'>
-              {name &&
-                <p className='results__title'>{name}</p>
-              }
-              {callsign &&
-                <p className='results__subtitle'>{callsign}</p>
-              }
+              <div>
+                {name &&
+                  <p className='results__title'>{name}</p>
+                }
+                {callsign &&
+                  <p className='results__subtitle'>{callsign}</p>
+                }
+              </div>
+              <img
+                src={flagUrl}
+                alt="Country Flag"
+                className='results__image'
+              />
             </li>
           }
           {cls &&
@@ -81,11 +88,6 @@ const Results = ({ isRecent, recentEntry }: { isRecent?: boolean, recentEntry?: 
                   {address2}<br/>
                   {country}
                 </address>
-                <img
-                  src={flagUrl}
-                  alt="Country Flag"
-                  className='results__image'
-                />
               </div>
             </li>
           }
