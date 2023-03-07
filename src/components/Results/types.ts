@@ -5,6 +5,7 @@ interface ResultTypes {
   cls: string,
   country: string,
   expires: string,
+  flag: string,
   grid: string,
   lat: string,
   licenseStatus: string,

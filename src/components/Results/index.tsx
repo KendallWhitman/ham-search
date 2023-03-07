@@ -12,6 +12,7 @@ const Results = ({ isRecent, recentEntry }: { isRecent?: boolean, recentEntry?: 
   cls,
   country,
   expires,
+  flag,
   grid,
   lat,
   licenseStatus,
@@ -19,8 +20,6 @@ const Results = ({ isRecent, recentEntry }: { isRecent?: boolean, recentEntry?: 
   name,
   status,
   }: ResultTypes = isRecent ? recentEntry : licenseData || {};
-
-  const flagUrl = `https://countryflagsapi.com/svg/${country}`;
 
   return (
     <>
@@ -37,8 +36,8 @@ const Results = ({ isRecent, recentEntry }: { isRecent?: boolean, recentEntry?: 
                 }
               </div>
               <img
-                src={flagUrl}
-                alt="Country Flag"
+                src={flag}
+                alt={`${country} flag`}
                 className='results__image'
               />
             </li>
