@@ -7,10 +7,3 @@ services:
     container_name: hamsearch
     ports:
       - 8003:3000
-
-  dev:
-    build: .
-    restart: unless-stopped
-    container_name: hamsearch-dev
-    ports:
-      - 8004:3000
